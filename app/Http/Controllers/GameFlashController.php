@@ -15,4 +15,18 @@ class GameFlashController extends Controller
             'message' => 'Lấy data game thành công !!'
         ]);
     }
+    public function getDataid($id){
+        $data = GameFlash::find($id);
+        if($data){
+            return response()->json([
+                'status' => 1,
+                'data' => $data,
+                'message' => 'Lấy thông tin game thành công!!'
+            ]);
+        }
+        return response()->json([
+            'status' => 0,
+            'message' => 'Không tìm thấy game!!'
+        ]);
+    }
 }
